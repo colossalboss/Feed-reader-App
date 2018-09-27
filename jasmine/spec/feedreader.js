@@ -16,10 +16,7 @@ $(function() {
     describe('RSS Feeds', function() {
         /* This is our first test - it tests to make sure that the
          * allFeeds variable has been defined and that it is not
-         * empty. Experiment with this before you get started on
-         * the rest of this project. What happens when you change
-         * allFeeds in app.js to be an empty array and refresh the
-         * page?
+         * empty.
          */
         it('are defined', function() {
             expect(allFeeds).toBeDefined();
@@ -27,7 +24,7 @@ $(function() {
         });
 
 
-        /* TODO: Write a test that loops through each feed
+        /* This test loops through each feed
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
@@ -39,7 +36,7 @@ $(function() {
         });
 
 
-        /* TODO: Write a test that loops through each feed
+        /* This test loops through each feed
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
@@ -53,7 +50,7 @@ $(function() {
     });
 
 
-    /* TODO: Write a new test suite named "The menu" */
+    /* A new test suite named "The menu" */
 
     describe('The menu', function() {
 
@@ -114,16 +111,20 @@ $(function() {
          */
         const feed = document.querySelector('.feed');
         const firstFeed = [];
-        const array = feed.children;
 
         beforeEach(function(done) {
             loadFeed(0);
-
+            Array.from(feed.children).forEach(function(entry) {
+                firstFeed.push(entry.innerText);
+            });
             loadFeed(1, done);
         });
 
         it('changes content', function() {
-            console.log(array);
+            Array.from(feed.children).forEach(function(entry, idx) {
+                console.log(entry.innerText, firstFeed[idx], entry.innerText === firstFeed[idx]);
+                expect(entry.innerText === firstFeed[idx]).toBe(false);
+            });
         });
 
     });
