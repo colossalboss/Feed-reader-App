@@ -4,7 +4,7 @@
  * all of the tests that will be run against your application.
  */
 
-/* We're placing all of our tests within the $() function,
+/* Placing all of our tests within the $() function,
  * since some of these tests may require DOM elements. We want
  * to ensure they don't run until the DOM is ready.
  */
@@ -53,44 +53,37 @@ $(function() {
     /* A new test suite named "The menu" */
 
     describe('The menu', function() {
-
-        /* TODO: Write a test that ensures the menu element is
-         * hidden by default. You'll have to analyze the HTML and
-         * the CSS to determine how we're performing the
-         * hiding/showing of the menu element.
+        /* This test ensures the menu element is
+         * hidden by default.
          */
         it('menu is hidden', function() {
             const target = document.querySelector('body');
             expect(target.classList.contains('menu-hidden')).toBe(true);
         });
 
-         /* TODO: Write a test that ensures the menu changes
-          * visibility when the menu icon is clicked. This test
-          * should have two expectations: does the menu display when
-          * clicked and does it hide when clicked again.
+         /* This test ensures the menu changes
+          * visibility when the menu icon is clicked.
           */
-         it('menu changes visibility', function() {
-             const target = document.querySelector('body');
-             const menu = document.querySelector('.menu-icon-link');
+        it('menu changes visibility', function() {
+            const target = document.querySelector('body');
+            const menu = document.querySelector('.menu-icon-link');
 
-             expect(target.classList.contains('menu-hidden')).toBe(true);
+            expect(target.classList.contains('menu-hidden')).toBe(true);
             menu.click();
             expect(target.classList.contains('menu-hidden')).toBe(false);
             menu.click();
             expect(target.classList.contains('menu-hidden')).toBe(true);
 
 
-         });
+        });
     });
 
-    /* TODO: Write a new test suite named "Initial Entries" */
+    /* A new test suite named "Initial Entries" */
     describe('Initial Entries', function() {
 
-        /* TODO: Write a test that ensures when the loadFeed
+        /* This test ensures that when the loadFeed
          * function is called and completes its work, there is at least
          * a single .entry element within the .feed container.
-         * Remember, loadFeed() is asynchronous so this test will require
-         * the use of Jasmine's beforeEach and asynchronous done() function.
          */
         beforeEach(function(done) {
             loadFeed(0, done);
@@ -102,12 +95,11 @@ $(function() {
     });
 
 
-    /* TODO: Write a new test suite named "New Feed Selection" */
+    /* A new test suite named "New Feed Selection" */
     describe('New feed Selection', function() {
 
-        /* TODO: Write a test that ensures when a new feed is loaded
+        /* This test ensures that when a new feed is loaded
          * by the loadFeed function that the content actually changes.
-         * Remember, loadFeed() is asynchronous.
          */
         const feed = document.querySelector('.feed');
         const firstFeed = [];
@@ -122,7 +114,6 @@ $(function() {
 
         it('changes content', function() {
             Array.from(feed.children).forEach(function(entry, idx) {
-                console.log(entry.innerText, firstFeed[idx], entry.innerText === firstFeed[idx]);
                 expect(entry.innerText === firstFeed[idx]).toBe(false);
             });
         });
