@@ -44,8 +44,8 @@ $(function() {
         it('name defined', function() {
             for (let feed of allFeeds) {
                 expect(feed.name).toBeDefined();
-                expect(feed.name).not.toBe(0);
-            }
+                expect(feed.name.length).not.toBe(0);
+            }   
         });
     });
 
@@ -89,8 +89,8 @@ $(function() {
             loadFeed(0, done);
         });
         it('completes its work', function() {
-            const feed = document.querySelector('.feed');
-            expect(feed.children.length > 0).toBe(true);
+            const feed = document.querySelector('.feed').getElementsByClassName('entry');
+            expect(feed.length > 0).toBe(true);
         });
     });
 
