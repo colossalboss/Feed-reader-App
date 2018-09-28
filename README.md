@@ -7,7 +7,7 @@ The Feed reader testing Project is one of the projects in Udacity's Front-End Na
 
 ## Instructions
 
-Open the html file to run the game(index.html), the tests can be found at the bottom of the page
+Open the html file to run the app (index.html), the tests can be found at the bottom of the page
 
 ## Objective
 
